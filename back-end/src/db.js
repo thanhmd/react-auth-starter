@@ -7,9 +7,9 @@ export const initializeDbConnection = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
-}
+};
 
 export const getDbConnection = dbName => {
     const db = client.db(dbName);
     return db;
-}
+};

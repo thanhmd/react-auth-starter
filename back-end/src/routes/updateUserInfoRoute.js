@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
 import { ObjectID } from 'mongodb';
-import { getDbConnection } from "../db";
+import { getDbConnection } from '../db';
 
 export const updateUserInfoRoute = {
     path: '/api/users/:userId',
     method: 'put',
-    handler: async (req, res, next) => {
+    handler: async (req, res) => {
         const { authorization } = req.headers;
         const { userId } = req.params;
 
@@ -39,7 +39,7 @@ export const updateUserInfoRoute = {
                     return res.status(200).json(err);
                 }
                 res.status(200).json({ token });
-            })
-        })
+            });
+        });
     }
-}
+};

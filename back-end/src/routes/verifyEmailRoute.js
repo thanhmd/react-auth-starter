@@ -1,6 +1,6 @@
 import {ObjectID } from 'mongodb';
 import jwt from 'jsonwebtoken';
-import {getDbConnection} from "../db";
+import {getDbConnection} from '../db';
 
 export const verifyEmailRoute = {
     path: '/api/verify-email',
@@ -19,9 +19,9 @@ export const verifyEmailRoute = {
             $set: {isVerified: true}
         });
 
-        jwt.sign({ id, email, info, isVerified: true}, process.env.JWT_SECRET, { expiresIn: "2d" }, (err, token) => {
+        jwt.sign({ id, email, info, isVerified: true}, process.env.JWT_SECRET, { expiresIn: '2d' }, (err, token) => {
             if (err) return res.sendStatus(500);
             res.status(200).json({token});
-        })
+        });
     }
-}
+};
