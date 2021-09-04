@@ -7,19 +7,13 @@ export const verifyEmailRoute = {
     method: 'put',
     handler: async (req, res) => {
         const { verificationString } = req.body;
-        console.log('on server');
         const db = getDbConnection('react-auth-db');
         const result = await db.collection('users').findOne({ verificationString });
-        console.log('on server 1', result);
-
-
         if (!result) {
             return res.status(400);
         }
 
         const {_id: id, email, info} = result;
-
-        console.log('geee', result);
 
         await db.collection('users').updateOne({_id: ObjectID(id)}, {
             $set: {isVerified: true}
