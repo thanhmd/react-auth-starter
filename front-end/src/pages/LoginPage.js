@@ -45,13 +45,13 @@ export const LogInPage = () => {
                 }}
             />
             <button disabled={!emailValue || !passwordValue} onClick={onLogInClick}>
-        Log In
+                {'Log In'}
             </button>
             <button onClick={() => history.push('/forgot-password')}>
-        Forgot your password
+                {'Forgot your password'}
             </button>
             <button onClick={() => history.push('/signup')}>
-        Don't have an account, Sign Up
+                {'Don\'t have an account, Sign Up'}
             </button>
         </div>
     );
