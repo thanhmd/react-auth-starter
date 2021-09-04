@@ -21,7 +21,7 @@ const fold = arr => pairs(arr).reduce((acc, pair) => {
     return {
         ...acc,
         [pair[0]]: pair[1],
-    }
+    };
 }, {});
 
 export const useQueryParams = () => {
@@ -30,4 +30,4 @@ export const useQueryParams = () => {
     const params = fold([...currentParamsObj.entries()]);
 
     return params;
-}
+};
